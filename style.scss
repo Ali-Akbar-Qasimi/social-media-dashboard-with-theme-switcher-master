@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
+
+// ### Primary
+
+$LimeGreen: hsl(163, 72%, 41%);
+$BrightRed: hsl(356, 69%, 56%);
+
+$Facebook: hsl(208, 92%, 53%);
+$Twitter: hsl(203, 89%, 53%);
+$Instagram-1: hsl(37, 97%, 70%);
+$Instagram-2: hsl(329, 70%, 58%);
+$YouTube: hsl(348, 97%, 39%);
+ 
+ //#### Dark Theme
+
+$dark-Toggle-1: hsl(210, 78%, 56%) ;
+$dark-Toggle-2: hsl(146, 68%, 55%);
+ 
+// #### Light Theme
+
+$light-Toggle: hsl(230, 22%, 74%);
+
+//  ### Neutral
+
+//  #### Dark Theme
+
+$dark-VeryDarkBlue-BG: hsl(230, 17%, 14%);
+$dark-VeryDarkBlue-TopBGPattern: hsl(232, 19%, 15%);
+$dark-DarkDesaturatedBlue-CardBG: hsl(228, 28%, 20%);
+$dark-DesaturatedBlue-Text: hsl(228, 34%, 66%);
+$dark-White-Text: hsl(0, 0%, 100%);
+
+//  #### Light Theme
+
+$light-White-BG: hsl(0, 0%, 100%);
+$light-VeryPaleBlue-TopBGPattern: hsl(225, 100%, 98%);
+$light-LightGrayishBlue-CardBG: hsl(227, 47%, 96%);
+$light-DarkGrayishBlue-Text: hsl(228, 12%, 44%);
+$light-VeryDarkBlue-Text: hsl(230, 17%, 14%);
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container.dark{
+    background-color: $dark-VeryDarkBlue-BG;
+    .dashboard{
+        .dashboard-header{
+            .dashboard-header-header{
+                color: $dark-White-Text;
+            }
+            .dashboard-header-text{
+                color: $dark-DesaturatedBlue-Text;
+            }
+        }
+        .dashboard-theme-switcher{
+            .text{
+                color: $dark-DesaturatedBlue-Text;
+            }
+            .switcher{
+                background: linear-gradient(to right ,$dark-Toggle-1, $dark-Toggle-2);
+                .switcher-inner{
+                    transform: translateX(0);
+                    background-color: $dark-VeryDarkBlue-BG;
+                }
+            }
+        }
+        .dashboard-content{
+            .card{
+                background-color: $dark-DarkDesaturatedBlue-CardBG;
+                .card-name{
+                    color: $dark-DesaturatedBlue-Text;
+                }
+                .number{
+                    color: $dark-White-Text;
+                }
+            }
+        }
+    }
+    .today-overview{
+        .header{
+            color: $dark-White-Text;
+        }
+        .cards{
+            .card{
+                background-color: $dark-DarkDesaturatedBlue-CardBG;
+                .top{
+                    color: $dark-DesaturatedBlue-Text;
+                }
+                .card-status{
+                    .number{
+                        color: $dark-White-Text;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container{
+    min-height: 100vh;
+    transition: background-color 300ms ease-in-out;
+    width: 100%;
+    background-color: $light-White-BG;
+    padding: 30px;
+    font-family: 'Inter', sans-serif;
+    display: grid;
+    grid-template-areas: 
+        'dashboard'
+        'today'
+    ;
+    gap: 50px;
+    .dashboard{
+        width: 100%;
+        grid-area: dashboard;
+        .dashboard-header{
+            width: 100%;
+            padding-block: 20px;
+            border-bottom: 1px solid $light-VeryDarkBlue-Text;
+            .dashboard-header-header{
+                margin-bottom: 10px;
+                font-size: 30px;
+                font-weight: 700;
+                color: $light-VeryDarkBlue-Text;
+                transition: color 300ms ease-in-out;
+            }
+            .dashboard-header-text{
+                color: $light-DarkGrayishBlue-Text;
+                font-weight: 700;
+            }
+        }
+        .dashboard-theme-switcher{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-block: 20px;
+            .text{
+                color: $light-DarkGrayishBlue-Text;
+                font-weight: 700;
+                transition: color 300ms ease-in-out;
+            }
+            .switcher{
+                width: 50px;
+                height: 25px;
+                display: flex;
+                align-items: center;
+                background-color: $light-Toggle;
+                border-radius: 100px;
+                transition: background-color 300ms ease-in-out;
+                .switcher-inner{
+                    margin-left: 3px;
+                    transform: translateX(120%);
+                    transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 100px;
+                    background-color: white;
+                }
+            }
+        }
+        .dashboard-content{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .card{
+                width: 100%;
+                border-radius: 5px;
+                overflow: hidden;
+                background-color: $light-VeryPaleBlue-TopBGPattern;
+                position: relative;
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 10px;
+                .card-outline{
+                    height: 5px;
+                    width: 100%;
+                    background-color: $Facebook;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+                .card-name{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    color: $light-DarkGrayishBlue-Text;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+                .number{
+                    margin-top: 10px;
+                    font-size: 60px;
+                    color: $light-VeryDarkBlue-Text;
+                }
+                .card-subject{
+                    letter-spacing: 5px;
+                    text-transform: uppercase;
+                    color: $light-DarkGrayishBlue-Text;
+                    margin-bottom: 20px;
+                }
+                .card-status{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 5px;
+                    color: $LimeGreen;
+                    .status{
+                        font-size: 12px;
+                        font-weight: 700;
+                    }
+                }
+            }
+            .card:nth-child(2){
+                .card-outline{
+                    background-color: $Twitter;
+                }
+            }
+            .card:nth-child(3){
+                .card-outline{
+                    background: linear-gradient(to right, $Instagram-1, $Instagram-2);
+                }
+            }
+            .card:nth-child(4){
+                .card-outline{
+                    background-color: $YouTube;
+                }
+                .card-status{
+                    .status{
+                        color: $BrightRed;
+                    }
+                }
+            }
+        }
+    }
+    .today-overview{
+        grid-area: today;
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        gap: 10px;
+        .header{
+            font-size: 30px;
+            font-weight: 700;
+            color: $light-DarkGrayishBlue-Text;
+            margin-bottom: 20px;
+        }
+        .cards{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            .card{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: $light-VeryPaleBlue-TopBGPattern;
+                padding: 20px;
+                border-radius: 5px;
+                .top{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 8px;
+                    color: $light-DarkGrayishBlue-Text;
+                }
+                .card-status{
+                    display: flex;
+                    justify-content: space-between;
+                    .number{
+                        font-size: 35px;
+                        font-weight: 700;
+                        color: $light-VeryDarkBlue-Text;
+                    }
+                    .precent{
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        font-weight: 700;
+                    }
+                    .precent.up{
+                        color: $LimeGreen;
+                    }
+                    .precent.down{
+                        color: $BrightRed;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 1000px) {
+    .container{
+        padding-inline: 100px;
+        grid-template-columns: 
+            'dashboard dashbaord'
+            'toady today'
+            'toady today'
+        ;
+        .dashboard{
+            .dashboard-content{
+                flex-direction: row;
+            }
+        }
+        .today-overview{
+            .cards{
+                justify-content: center;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                .card{
+                    width: 100%;
+                    max-width: 280px;
+                    gap: 30px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.attribution { margin-top: -20px; font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
